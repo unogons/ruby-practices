@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 def fizz_buzz
   (1..20).each do |number|
     if number % 15 == 0
