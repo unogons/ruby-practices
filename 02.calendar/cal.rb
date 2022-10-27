@@ -1,4 +1,5 @@
 require 'date'
+require 'optparse'
 
 def print_calendar(year, month)
   puts "   #{month} #{year}"
@@ -30,5 +31,16 @@ def print_calendar(year, month)
   print "\n" if output_count % 7 != 0
 end
 
-# TODO: 実行時にオプションからyearとmonthを受け取るようにする
-print_calendar(2022, 10)
+def exec
+  opt = OptionParser.new
+  opt.on('-y')
+  opt.on('-m')
+  opt.parse!(ARGV)
+
+  year = ARGV[0].to_i
+  month = ARGV[1].to_i
+
+  print_calendar(year, month)
+end
+
+exec
