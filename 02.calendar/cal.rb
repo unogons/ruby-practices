@@ -37,8 +37,14 @@ def exec
   opt.on('-m')
   opt.parse!(ARGV)
 
-  year = ARGV[0].to_i
-  month = ARGV[1].to_i
+  if ARGV.size == 0
+    today = Date.today
+    month = today.month
+    year = today.year
+  else
+    year = ARGV[0].to_i
+    month = ARGV[1].to_i
+  end
 
   print_calendar(year, month)
 end
