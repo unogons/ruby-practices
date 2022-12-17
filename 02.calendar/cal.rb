@@ -2,7 +2,7 @@ require 'date'
 require 'optparse'
 
 def print_calendar(year, month)
-  puts "   #{month} #{year}"
+  puts '   ' + Date.new(year, month).strftime('%B %Y')
   puts 'Su Mo Tu We Th Fr Sa'
 
   first_wday = Date.new(year, month, 1).wday
